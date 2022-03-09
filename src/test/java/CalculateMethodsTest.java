@@ -15,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author MC03353
  */
+
 public class CalculateMethodsTest { 
     
     private CalculateMethods calculateMethods;

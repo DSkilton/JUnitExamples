@@ -8,5 +8,8 @@
  * @author MC03353
  */
 public class Code {
+    public String sayHello(){
+        return "Hellow World!";
+    }
     
 }
