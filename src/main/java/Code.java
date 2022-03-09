@@ -9,7 +9,12 @@
  */
 public class Code {
     public String sayHello(){
-        return "Hellow World!";
+        return "Hello World!";
+    }
+    
+    @Deprecated
+    public String helloWorld(){
+        return "Hello World!";
     }
     
 }
