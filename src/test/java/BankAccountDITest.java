@@ -18,9 +18,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 public class BankAccountDITest {
     
     @Test
-    @DisplayName("Deposit 500 successfully");
+    @DisplayName("Deposit 500 successfully")
     public void testDeposit(BankAccount bankAccount){
         bankAccount.deposit(500);
         assertEquals(500, bankAccount.getBalance());
     }
+    
+    
 }
