@@ -1,8 +1,11 @@
 
 import java.time.DayOfWeek;
+import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -17,6 +20,20 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 @ExtendWith(BankAccountParameterResolver.class)
 public class BankAccountParameterizedTestTest {
+    
+    @Test
+    @Timeout(value = 500, unit = TimeUnit.MILLISECONDS)// can be used at top of class too
+    public void testDepositTimeoutAssertion(BankAccount bankAccount){
+        try{
+            Thread.sleep(200);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        
+        bankAccount.deposit(300);
+        assertEquals(300, bankAccount.getBalance());
+    }
+    
     @ParameterizedTest
     @ValueSource(ints = {100, 400, 800, 1000})
     @DisplayName("Depositing successfully")
