@@ -5,14 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.ValueSource;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  *
@@ -37,7 +33,8 @@ public class BankAccountParameterizedTestTest {
     }
     
     @ParameterizedTest
-    @CsvSource({"100, Mary", "200, Rachid", "150, Ted"})
+//    @CsvSource({"100, Mary", "200, Rachid", "150, Ted"})
+    @CsvFileSource(resources = "details.csv")
     public void depositAndNameTest(double amount, String name, BankAccount bankAccount){
         bankAccount.deposit(amount);
         bankAccount.setHolderName(name);
