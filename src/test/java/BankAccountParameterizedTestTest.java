@@ -1,7 +1,9 @@
 
 import java.time.DayOfWeek;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeout;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -32,6 +34,20 @@ public class BankAccountParameterizedTestTest {
         
         bankAccount.deposit(300);
         assertEquals(300, bankAccount.getBalance());
+    }
+    
+    @Test
+    public void testDepositTimeAnnotation(BankAccount bankAccount){
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        
+        bankAccount.deposit(300);
+        assertTimeout(Duration.ofMillis(500), () -> {
+            Thread.sleep(10);
+        });
     }
     
     @ParameterizedTest
