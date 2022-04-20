@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,11 +15,12 @@ import org.junit.jupiter.api.Test;
  *
  * @author MC03353
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BankAccountBeforeAndAfterTest {
     static BankAccount bankAccount;
     
     @BeforeAll //can also use @BeforeEach but cannot be static 
-    public static void prepTest(){
+    public void prepTest(){
         bankAccount = new BankAccount(500, 0);
     }
     
@@ -31,11 +33,11 @@ public class BankAccountBeforeAndAfterTest {
     @Test
     public void testDeposit(){
         bankAccount.deposit(500);
-        assertEquals(500, bankAccount.getBalance());
+        assertEquals(700, bankAccount.getBalance());
     }
     
     @AfterAll //can also use @AfterEach but cannot be static 
-    public static void endTest(){
+    public void endTest(){
         System.out.println("Finished");
     }
 
