@@ -1,4 +1,5 @@
 
+import org.junit.jupiter.api.AfterAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
@@ -33,5 +34,9 @@ public class BankAccountBeforeAndAfterTest {
         assertEquals(500, bankAccount.getBalance());
     }
     
+    @AfterAll
+    public static void endTest(){
+        System.out.println("Finished");
+    }
 
 }
