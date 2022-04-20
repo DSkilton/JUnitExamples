@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 public class BankAccountBeforeAndAfterTest {
     static BankAccount bankAccount;
     
-    @BeforeAll
+    @BeforeAll //can also use @BeforeEach but cannot be static 
     public static void prepTest(){
         bankAccount = new BankAccount(500, 0);
     }
@@ -34,7 +34,7 @@ public class BankAccountBeforeAndAfterTest {
         assertEquals(500, bankAccount.getBalance());
     }
     
-    @AfterAll
+    @AfterAll //can also use @AfterEach but cannot be static 
     public static void endTest(){
         System.out.println("Finished");
     }
