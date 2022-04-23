@@ -13,6 +13,10 @@ import org.junit.jupiter.api.condition.*;
  * @author MC03353
  */
 public class BankAccountConditionalTest {
+    //aditional system and environment variables
+    //@EnabledIfSystemProperty(named = "os.version", matces = "x")
+    //@DisabledIfSystemProperty(named = "os.version", matces = "x")
+    //@EnabledIfEnvironmentVariable(named = "USERNAME", matces = "some name")
     
     @Test
     @EnabledOnOs({OS.MAC})
