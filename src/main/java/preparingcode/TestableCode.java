@@ -31,9 +31,8 @@ public class TestableCode {
         return greetUser;
     }
 
-    public String greetDay() {
+    public String greetDay(LocalDateTime dateTime) {
         String greetingDayPart = "";
-        LocalDateTime dateTime = LocalDateTime.now();
 
         if (dateTime.getHour() >= 0 && dateTime.getHour() < 6) {
             greetingDayPart += "Good night, ";

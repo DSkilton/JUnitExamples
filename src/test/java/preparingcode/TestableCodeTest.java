@@ -33,7 +33,7 @@ public class TestableCodeTest {
     @DisplayName("Test greeting special and known name")
     public void testSpecialAndKnownNameGreeting(){
         String name = "Tess";
-        String outcome = "I know you, Tess. But you are on our VIP list!";
+        String outcome = "I know you, Tess. You're even on our VIP list!";
         assertEquals(outcome, tc.greetUser(name));
     }
     
@@ -45,27 +45,12 @@ public class TestableCodeTest {
         assertEquals(outcome, tc.greetUser(name));
     }
     
+    @Test
+    @DisplayName("Test part of the day greeting")
     public void testDayPart(){
-        String dayPart = "";
-        LocalDateTime dateTime = LocalDateTime.now();
-        
-        if(dateTime.getHour() >= 0 && dateTime.getHour() < 6){
-            dayPart += "Good night, ";
-        }
-        
-        if(dateTime.getHour() >= 6 && dateTime.getHour() < 12){
-            dayPart += "Good morning, ";
-        }
-        
-        if(dateTime.getHour() >= 12 && dateTime.getHour() < 18){
-            dayPart += "Good afternoon, ";
-        }
-        
-        if(dateTime.getHour() >= 18 && dateTime.getHour() < 23){
-            dayPart += "Good evening, ";
-        }
-        
-        assertTrue(tc.greetUser("anyName").contains(dayPart));   
+        LocalDateTime dateTime = LocalDateTime.of(2022, 5, 6, 16, 50);
+        String outcome = "Good afternoon, ";        
+        assertEquals(outcome, tc.greetDay(dateTime));   
     }
     
 }
