@@ -4,12 +4,14 @@
  */
 package preparingcode;
 
+import java.time.LocalDateTime;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
 
 /**
  *
@@ -17,38 +19,43 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class TestableCodeTest {
     
-    public TestableCodeTest() {
-    }
+    private static TestableCode tc = new TestableCode();
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
-
-    /**
-     * Test of greetUser method, of class TestableCode.
-     */
     @Test
-    public void testGreetUser() {
-        System.out.println("greetUser");
-        String name = "";
-        TestableCode instance = new TestableCode();
-        String expResult = "";
-        String result = instance.greetUser(name);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    @DisplayName("Test greeting special name")
+    public void testSpecialNameGreeting(){
+        String name = "Noah";
+        assertTrue(tc.greetUser(name).contains("VIP"));
+    }
+    
+    @Test
+    @DisplayName("Test greeting unknown name")
+    public void testUnknownNameGreeting(){
+        String name = "Sascha";
+        assertTrue(tc.greetUser(name).contains("stranger"));
+    }
+    
+    public void testDayPart(){
+        String dayPart = "";
+        LocalDateTime dateTime = LocalDateTime.now();
+        
+        if(dateTime.getHour() >= 0 && dateTime.getHour() < 6){
+            dayPart += "Good night, ";
+        }
+        
+        if(dateTime.getHour() >= 6 && dateTime.getHour() < 12){
+            dayPart += "Good morning, ";
+        }
+        
+        if(dateTime.getHour() >= 12 && dateTime.getHour() < 18){
+            dayPart += "Good afternoon, ";
+        }
+        
+        if(dateTime.getHour() >= 18 && dateTime.getHour() < 23){
+            dayPart += "Good evening, ";
+        }
+        
+        assertTrue(tc.greetUser("anyName").contains(dayPart));   
     }
     
 }
