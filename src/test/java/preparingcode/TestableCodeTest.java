@@ -41,7 +41,7 @@ public class TestableCodeTest {
     @DisplayName("Test greeting unknown name")
     public void testUnknownNameGreeting(){
         String name = "Sascha";
-        String outcome = "stranger";
+        String outcome = "Stranger";
         assertEquals(outcome, tc.greetUser(name));
     }
     
@@ -50,7 +50,6 @@ public class TestableCodeTest {
     public void testDayPart(){
         LocalDateTime dateTime = LocalDateTime.of(2022, 5, 6, 16, 50);
         String outcome = "Good afternoon, ";        
-        assertEquals(outcome, tc.greetDay(dateTime));   
+        assertEquals(outcome, tc.greetDay(dateTime));
     }
-    
 }

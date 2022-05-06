@@ -12,6 +12,7 @@ import java.util.Arrays;
  * @author MC03353
  */
 public class TestableCode {
+
     public static String[] knownNames = {"Zeynep", "Tess", "Marina", "Jade", "Eric", "Jamal"};
     public static String[] specialNames = {"Zach", "Martin", "Noah", "Tess"};
 
@@ -36,18 +37,18 @@ public class TestableCode {
 
         if (dateTime.getHour() >= 0 && dateTime.getHour() < 6) {
             greetingDayPart += "Good night, ";
+        }
 
-            if (dateTime.getHour() >= 6 && dateTime.getHour() < 12) {
-                greetingDayPart += "Good night, ";
-            }
+        if (dateTime.getHour() >= 6 && dateTime.getHour() < 12) {
+            greetingDayPart += "Good night, ";
+        }
 
-            if (dateTime.getHour() >= 12 && dateTime.getHour() < 18) {
-                greetingDayPart += "Good night, ";
-            }
-            
-            if (dateTime.getHour() >= 18 && dateTime.getHour() < 23) {
-                greetingDayPart += "Good night, ";
-            }
+        if (dateTime.getHour() >= 12 && dateTime.getHour() < 18) {
+            greetingDayPart += "Good afternoon, ";
+        }
+
+        if (dateTime.getHour() >= 18 && dateTime.getHour() < 23) {
+            greetingDayPart += "Good night, ";
         }
         return greetingDayPart;
     }
