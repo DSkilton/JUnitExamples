@@ -8,13 +8,14 @@
  * @author MC03353
  */
 public class Code {
-    public String sayHello(){
+
+    public String sayHello() {
         return "Hello World!";
     }
-    
+
     @Deprecated
-    public String helloWorld(){
+    public String helloWorld() {
         return "Hello World!";
     }
-    
+
 }

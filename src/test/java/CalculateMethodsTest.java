@@ -15,24 +15,23 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @author MC03353
  */
+public class CalculateMethodsTest {
 
-public class CalculateMethodsTest { 
-    
     private CalculateMethods calculateMethods;
-    
+
     @BeforeEach
-    public void initTest(){
+    public void initTest() {
         calculateMethods = new CalculateMethods();
     }
-    
+
     @Test
-    public void testDivide(){
+    public void testDivide() {
         assertEquals(10, calculateMethods.divide(100, 10));
     }
-    
+
     @Test
-    public void testDivideByZero(){
-        assertThrows(ArithmeticException.class, () -> calculateMethods.divide(100,0));
+    public void testDivideByZero() {
+        assertThrows(ArithmeticException.class, () -> calculateMethods.divide(100, 0));
     }
-    
+
 }

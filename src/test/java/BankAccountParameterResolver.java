@@ -8,7 +8,6 @@ import org.junit.jupiter.api.extension.ParameterResolver;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 /**
  *
  * @author MC03353
@@ -24,5 +23,5 @@ public class BankAccountParameterResolver implements ParameterResolver {
     public Object resolveParameter(ParameterContext pc, ExtensionContext ec) throws ParameterResolutionException {
         return new BankAccount(0, 0);
     }
-    
+
 }

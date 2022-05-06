@@ -15,13 +15,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author MC03353
  */
 public class CodeTest {
-    
+
     @Test
-    public void testSayHello(){
+    public void testSayHello() {
         Code code = new Code();
         assertEquals("Hello World!", code.sayHello());
     }
-    
-    
-    
+
 }

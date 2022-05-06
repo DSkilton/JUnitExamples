@@ -13,16 +13,15 @@ import org.junit.jupiter.api.DisplayName;
  *
  * @author MC03353
  */
-
 public class BankAccountAssumptionsTest {
-    
+
     @Test
     @DisplayName("Test activation after creation")
-    public void testActive(){
+    public void testActive() {
         BankAccount bankAccount = new BankAccount(500, 0);
         assumeTrue(bankAccount != null);
         assumingThat(bankAccount != null, () -> assertTrue(bankAccount.isActive()));
         assertTrue(bankAccount.isActive());
     }
-    
+
 }
