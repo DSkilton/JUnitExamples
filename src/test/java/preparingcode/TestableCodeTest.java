@@ -25,14 +25,24 @@ public class TestableCodeTest {
     @DisplayName("Test greeting special name")
     public void testSpecialNameGreeting(){
         String name = "Noah";
-        assertTrue(tc.greetUser(name).contains("VIP"));
+        String outcome = "I don't know you, Noah. But you are on our VIP list!";
+        assertEquals(outcome, tc.greetUser(name));
+    }
+    
+    @Test
+    @DisplayName("Test greeting special and known name")
+    public void testSpecialAndKnownNameGreeting(){
+        String name = "Tess";
+        String outcome = "I know you, Tess. But you are on our VIP list!";
+        assertEquals(outcome, tc.greetUser(name));
     }
     
     @Test
     @DisplayName("Test greeting unknown name")
     public void testUnknownNameGreeting(){
         String name = "Sascha";
-        assertTrue(tc.greetUser(name).contains("stranger"));
+        String outcome = "stranger";
+        assertEquals(outcome, tc.greetUser(name));
     }
     
     public void testDayPart(){

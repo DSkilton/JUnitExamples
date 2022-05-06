@@ -14,7 +14,6 @@ import java.util.Arrays;
 public class TestableCode {
     public static String[] knownNames = {"Zeynep", "Tess", "Marina", "Jade", "Eric", "Jamal"};
     public static String[] specialNames = {"Zach", "Martin", "Noah", "Tess"};
-    public String greeting = "";
 
     public String greetUser(String name) {
         String greetUser = "";
@@ -33,24 +32,25 @@ public class TestableCode {
     }
 
     public String greetDay() {
+        String greetingDayPart = "";
         LocalDateTime dateTime = LocalDateTime.now();
 
         if (dateTime.getHour() >= 0 && dateTime.getHour() < 6) {
-            greeting += "Good night, ";
+            greetingDayPart += "Good night, ";
 
             if (dateTime.getHour() >= 6 && dateTime.getHour() < 12) {
-                greeting += "Good night, ";
+                greetingDayPart += "Good night, ";
             }
 
             if (dateTime.getHour() >= 12 && dateTime.getHour() < 18) {
-                greeting += "Good night, ";
+                greetingDayPart += "Good night, ";
             }
             
-            if (dateTime.getHour() >= 12 && dateTime.getHour() < 18) {
-                greeting += "Good night, ";
+            if (dateTime.getHour() >= 18 && dateTime.getHour() < 23) {
+                greetingDayPart += "Good night, ";
             }
         }
-        return greeting;
+        return greetingDayPart;
     }
 
 }
